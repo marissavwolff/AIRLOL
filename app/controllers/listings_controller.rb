@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
   def show
-    @listings = Listing.all
+    @listing = Listing.find(params[:id])
   end
 end
