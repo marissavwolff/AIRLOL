@@ -8,9 +8,7 @@
 require 'faker'
 
   puts "doing seed here"
-  # user = User.create!(name: "Bob", number: "+33456 781345", email: "bob@bob.lewagon", password: "kafjgalkjdfhgbald")
-  10.times do
+  user = User.create!(name: "Bob", number: "+33456 781345", email: "bob@bob.lewagon", password: "kafjgalkjdfhgbald")
     listing = Listing.create!(category: "nsfw", description: Faker::Quotes::Shakespeare, user_id: 1)
 #   user.save!
-  end
 #   listing.save!
