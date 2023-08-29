@@ -4,5 +4,16 @@
   <%= @listing.description %>
   <%= @listing.price %>Eur
   <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
-
 </div>
+
+<br>
+
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+  <% @listing.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %> out of 5</li>
+    <br>
+  <% end %>
+</ul>
+<br>
