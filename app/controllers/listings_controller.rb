@@ -18,7 +18,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user = current_user
     if @listing.save
-      redirect_to listing_path(@listing)
+      redirect_to mylistings_path, notice: "Listing was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
