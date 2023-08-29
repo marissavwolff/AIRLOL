@@ -1,0 +1,17 @@
+<%= render 'layouts/navbar' %>
+<h1>All Listings</h1>
+<div class="cards-container">
+  <div class="d-flex flex-wrap">
+    <div class="cards">
+    <% @listings.each do |listing| %>
+        <div class="col">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= listing.description %>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
