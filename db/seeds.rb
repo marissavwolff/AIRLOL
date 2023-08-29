@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
+
+Listing.destroy_all
+
 puts "doing seed here"
 User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", password: "kafjgalkjdfhgbald")
 
