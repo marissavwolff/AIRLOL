@@ -8,7 +8,6 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
-    @listing.user = current_user
   end
 
   def new
