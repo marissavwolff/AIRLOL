@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
   belongs_to :user
   has_many :orders
-  validates :category, inclusion: { in: ["black", "dark", "psycho", "slapstick", "family-appropriate", "puns", "self-depreciating", "nsfw", "satir", "awkward", "awesome"] }
+  validates :category, inclusion: { in: ["witty", "dark", "dry", "slapstick", "family", "puns", "self-depreciating", "toilet", "satire", "awkward", "cringe"] }
 end
