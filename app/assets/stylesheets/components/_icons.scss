@@ -1,0 +1,33 @@
+.icon-bar {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+
+  i {
+    text-align: center;
+    transition: all 0.3s ease;
+    color: rgb(103, 107, 107);
+    font-size: 36px;
+    text-decoration: none;
+    padding-bottom: 4px;
+    &:hover {
+      color:black;
+    }
+  }
+
+  p {
+    text-align: center;
+    transition: all 0.3s ease;
+    color: rgb(103, 107, 107);
+    font-size: 12px;
+  }
+}
+
+.category-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}

@@ -1,0 +1,9 @@
+<h1>Your Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <div class="booking">
+    <p><strong>Listing:</strong> <%= booking.listing.title %></p>
+    <p><strong>Category:</strong> <%= booking.listing.category %></p>
+    <p><strong>Price:</strong> <%= booking.listing.price %></p>
+  </div>
+<% end %>

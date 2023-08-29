@@ -1,5 +1,6 @@
 <%= render 'layouts/navbar' %>
 
+
 <div class="container">
   <h1 class="m-5"><%= @listing.name %></h1>
 
@@ -36,19 +37,21 @@
    </ul>
   </div>
 
-  <div class="card-product m-4">
-    <div class="card-product-infos">
-      <h5>Reserve this humour</h5>
-      <p>Check for availabilty<%#= @listing.availabilty %></p>
-    </div>
+  <div class="m-4">
+    <%= render 'booking_form', listing: @listing %>
   </div>
 
-  <div class="card-product m-4">
-    <div class="card-product-infos">
-      <h5>Leave a review <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></h5>
-    </div>
-    </div>
-
+ <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+  <% @listing.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %> out of 5</li>
+    <br>
+  <% end %>
+</ul>
 </div>
 
+
 <%= render 'layouts/footer' %>
+
+
