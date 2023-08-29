@@ -7,8 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-  puts "doing seed here"
-  user = User.create!(name: "Bob", number: "+33456 781345", email: "bob@bob.lewagon", password: "kafjgalkjdfhgbald")
-    listing = Listing.create!(category: "nsfw", description: Faker::Quotes::Shakespeare, user_id: 1)
-#   user.save!
-#   listing.save!
+puts "doing seed here"
+User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", password: "kafjgalkjdfhgbald")
+
+20.times do
+  myArray = ["witty", "dark", "dry", "slapstick", "family", "puns", "self-depreciating", "toilet", "satire", "awkward", "cringe"]
+  name = ["HA HA HA", "Family Joke!", "Hilarious", "One line puns!", "Create a chuckle :D"]
+  price = rand(0.01..0.99)
+  location = ["London", "Madrid", "Paris", "Lisbon", "New York", "Singapore", "Tokyo", "Rome", "Amsterdam"]
+  Listing.create!(category: myArray.sample, description: Faker::Quote.jack_handey, user_id: 1, name: name.sample, price: price, location: location.sample)
+end
+
+puts "created seeds"
