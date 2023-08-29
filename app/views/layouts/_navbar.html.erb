@@ -18,10 +18,10 @@
             <%= link_to "Logout", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
           </li>
           <li class="nav-item dropdown">
-            <i class="fa-regular fa-face-grin-squint-tears"></i>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My Listings", "#", class: "dropdown-item" %>
+              <%= link_to "Add new listing", "#", class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

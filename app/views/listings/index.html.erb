@@ -1,4 +1,9 @@
 <%= render 'layouts/navbar' %>
+
+<% if user_signed_in %>
+
+
+<% else %>
 <h1>All Listings</h1>
 <div class="cards-container">
   <div class="d-flex flex-wrap">
@@ -13,5 +18,6 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <%= render 'layouts/footer' %>
