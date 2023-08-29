@@ -1,0 +1,13 @@
+
+<% if current_user %>
+  <% if @listing.available? %>
+    <%= form_for Booking.new, url: listing_bookings_path(@listing), method: :post do |f| %>
+      <%= f.hidden_field :listing_id, value: @listing.id %>
+      <%= f.submit "Book Humor", class: "btn btn-primary" %>
+    <% end %>
+  <% else %>
+    <p>Sorry, the humor listing is not available for booking.</p>
+  <% end %>
+<% else %>
+  <p>Please log in to book humor.</p>
+<% end %>
