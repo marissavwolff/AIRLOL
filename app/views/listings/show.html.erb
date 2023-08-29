@@ -1,10 +1,22 @@
 <%= render 'layouts/navbar' %>
-<h1>Listing</h1>
 
-<div class="card">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    <%= @listing.name %>
-    <%= @listing.description %>
-    <%= @listing.price %>Eur
+<div class="container">
+  <h1 class="m-3"><%= @listing.name %></h1>
+
+  <div class="card-trip">
+    <% if listing.photo.attached? %>
+
+    <% end %>
+    <img src="../app/assets/images/Laughing.png" />
+    <div class="card-trip-infos">
+      <div style="background-image: url(<%=  %>)">
+        <h2><%= @listing.location %></h2>
+        <p> <%= @listing.description %></p>
+      </div>
+      <p>Reserve this humour</p>
+      <h2 class="card-trip-pricing">£<%= @listing.price %></h2>
+      <i class="fa-solid fa-user-astronaut card-trip-user avatar-large"></i>
+    </div>
   </div>
 </div>
+<%=  %>
