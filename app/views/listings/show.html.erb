@@ -5,6 +5,7 @@
 
   <div class="card-trip m-3">
     <%# if @listing.photo.attached? %>
+  <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
      <%# else %>
       <%= image_tag "Laughing.png" %>
     <%# end %>
