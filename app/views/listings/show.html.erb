@@ -3,9 +3,19 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <%= @listing.description %>
   <%= @listing.price %>Eur
-<<<<<<< HEAD
-=======
+
   <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
 
->>>>>>> 8daf1aeb249098d0140c5253e31237c06b13010c
 </div>
+
+<br>
+
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+  <% @listing.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %> out of 5</li>
+    <br>
+  <% end %>
+</ul>
+<br>
