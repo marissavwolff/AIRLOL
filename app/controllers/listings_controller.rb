@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  # before_action :set_user, only: [:new, :create]
   before_action :set_listing, only: [:show, :destroy]
 
   def show
@@ -14,8 +15,9 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
-      redirect_to listings_path
+      redirect_to listing_path(@listing)
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +27,10 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(:name, :category, :location, :availability, :description, :price, :photo)
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def set_listing
