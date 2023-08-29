@@ -1,6 +1,55 @@
-<h1>Listing</h1>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= @listing.description %>
-      <%= @listing.price %>Eur
+<%= render 'layouts/navbar' %>
+
+
+<div class="container">
+  <h1 class="m-5"><%= @listing.name %></h1>
+
+  <div class="card-trip m-3">
+    <% if @listing.photo.attached? %>
       <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+     <% else %>
+      <%= image_tag "lauging-image.png", height: 300, width: 400, crop: :fill %>
+    <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h3><%= @listing.location %></h3>
+          <h2><%= @listing.category %></h2>
+        </div>
+      <h2 class="card-trip-pricing">£<%= @listing.price %> /night</h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
   </div>
+
+  <div class="card-product m-3">
+    <div class="card-product-infos">
+      <p><%= @listing.description %></p>
+    </div>
+  </div>
+
+  <div class="card m-3 p-2">
+   <h5>What this <%= @listing.category %> humour has to offer:</h5>
+   <ul class="list-unstyled p-1">
+    <li><i class="fa-regular fa-face-grin-squint-tears"></i>  Laugh till you cry</li>
+    <li><i class="fa-solid fa-face-laugh-beam"></i>  Smile till your cheeks hurt</li>
+    <li><i class="fa-regular fa-face-laugh-squint"></i>  Giggle like a kid again </li>
+    <li><i class="fa-solid fa-square-person-confined"></i>  Some may question the type of humour</li>
+    <li><i class="fa-solid fa-face-laugh-wink"></i>  But will always laugh out of pitty</li>
+   </ul>
+  </div>
+
+  <div class="m-4">
+    <%= render 'booking_form', listing: @listing %>
+  </div>
+
+ <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+  <% @listing.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %> out of 5</li>
+    <br>
+  <% end %>
+</ul>
+</div>
+
+
+<%= render 'layouts/footer' %>

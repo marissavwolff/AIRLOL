@@ -1,23 +1,82 @@
 <%= render 'layouts/navbar' %>
+<%= render "layouts/search" %>
 
-<% if user_signed_in %>
+<div class="icon-bar">
 
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-people-group"></i>
+    <p>Family</p>
+  <% end %>
 
-<% else %>
-<h1>All Listings</h1>
-<div class="cards-container">
-  <div class="d-flex flex-wrap">
-    <div class="cards">
-    <% @listings.each do |listing| %>
-        <div class="col">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <%= listing.description %>
-          </div>
-        </div>
-    <% end %>
-    </div>
-  </div>
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-toilet-paper"></i>
+    <p>Toilet</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-face-smile-wink"></i>
+    <p>Witty</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-face-grin-tongue-wink"></i>
+    <p>Slapstick</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-ghost"></i>
+    <p>Cringe</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-palette"></i>
+    <p>Satire</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-fire-flame-simple"></i>
+    <p>Trending</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-face-grimace"></i>
+    <p>Puns</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-face-smile-beam"></i>
+    <p>Awkward</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-star-half-stroke"></i>
+    <p>Dry</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-hat-wizard"></i>
+    <p>Dark</p>
+  <% end %>
+
+  <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-person"></i>
+    <p>Self-Deprecating</p>
+  <% end %>
 </div>
 <% end %>
+
+<div class="row m-2">
+    <% @listings.each do |listing| %>
+      <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+        <div class="bg-white rounded shadow h-100">
+          <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: listing.name, class: "humour-img rounded-top" %>
+          <div class="p-3 rounded-bottom d-flex flex-column">
+            <strong></span><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
+            <em><small class="text-muted"><%= listing.location %></small></em>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 <%= render 'layouts/footer' %>
