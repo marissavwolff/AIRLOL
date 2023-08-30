@@ -38,8 +38,13 @@
   </div>
 
   <div class="m-4">
-    <%= render 'bookings/booking_form', listing: @listing %>
+    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
   </div>
+
+  <%# <div class="m-4">
+    <%= render 'bookings/new', listing: @listing %>
+  <%# </div> %>
+
 
 
   <div class="m-5">
@@ -51,7 +56,8 @@
    </div>
 
 
- <p><strong>Reviews     </strong><%= link_to "Add", new_listing_review_path(@listing, @review) if user_signed_in? %></p>
+
+ <p><strong>Reviews: </strong></p>
 
   <ul class="list-group">
     <% @listing.reviews.each do |review| %>
