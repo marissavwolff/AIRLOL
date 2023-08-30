@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
   devise_for :users
 
   root to: "listings#index"
