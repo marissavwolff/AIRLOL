@@ -1,6 +1,6 @@
 
 <% if current_user %>
-  <% if @listing.available? %>
+  <% unless @listing.availability? %>
     <%= form_for Booking.new, url: listing_bookings_path(@listing), method: :post do |f| %>
       <%= f.hidden_field :listing_id, value: @listing.id %>
       <%= f.submit "Book Humor", class: "btn btn-primary" %>
