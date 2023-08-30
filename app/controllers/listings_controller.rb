@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :destroy]
+  before_action :set_listing, only: [:show, :edit, :destroy, :update]
 
   def show
     @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
@@ -26,6 +26,14 @@ class ListingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @listing.update(listing_params)
+    redirect_to mylistings_path
   end
 
   private
