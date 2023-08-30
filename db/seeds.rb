@@ -10,6 +10,7 @@ require 'faker'
 
 Listing.destroy_all
 Review.destroy_all
+User.destroy_all
 
 puts "doing seed here"
 User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", password: "kafjgalkjdfhgbald")
@@ -22,5 +23,11 @@ User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", p
   Listing.create!(category: myArray.sample, description: Faker::Quote.jack_handey, user_id: 1, name: name.sample, price: price, location: location.sample)
 end
 
+40.times do
+  reviewcontent = ["Awesome!", "Cried my pants out", "Give me more!", "I laughed my pain out"]
+  reviewrating = [1, 2, 3, 4, 5]
+  listingid = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  Review.create!(content: reviewcontent.sample, rating: reviewrating.sample, listing_id: listingid.sample, user_id: 1)
+end
 
 puts "created seeds"
