@@ -28,6 +28,12 @@ class ListingsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @listing.destroy
+    redirect_to mylistings_path, status: :see_other
+  end
+
   def edit
   end
 
