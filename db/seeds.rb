@@ -11,7 +11,7 @@ require 'faker'
 Listing.destroy_all
 
 puts "doing seed here"
-User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", password: "kafjgalkjdfhgbald")
+User.create!(name: "Bob", number: "+33456 781345", email: "harry@lewagon.co.uk", password: "kafjgalkjdfhgbald")
 
 20.times do
   myArray = ["witty", "dark", "dry", "slapstick", "family", "puns", "self-depreciating", "toilet", "satire", "awkward", "cringe"]

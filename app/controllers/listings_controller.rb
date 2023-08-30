@@ -1,10 +1,9 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :destroy]
 
-
   def show
+    @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
   end
-
 
   def index
     @listings = Listing.all
@@ -33,5 +32,4 @@ class ListingsController < ApplicationController
   def set_listing
     @listing = Listing.find(params[:id])
   end
-
 end
