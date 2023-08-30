@@ -2,19 +2,27 @@ class BookingsController < ApplicationController
 before_action :authenticate_user!
 
 def index
-  @bookings = current_user.bookings
+  @bookings = Booking.all
 end
 
 def create
-  listing = Listing.find(params[:listing_id])
+  @listing = Listing.find(params[:listing_id])
+  @booking = @listing.bookings.new(booking_params)
 
-  if listing.available?
-    current_user.bookings.create(listing: listing)
-    listing.update(available: false)
-    flash[:success] = "You have booked some humour!"
+  if @booking.save
+    redirect_to @listing, notice: "Booking created!"
   else
-    flash[:error] = "Sorry, this humour is not available"
+    render :new
   end
-  redirect_to listings_path
 end
+
+def new
+  @booking = Booking.new
+end
+  private
+
+  def booking_params
+    params.require(:booking).permit(:date)
+
+  end
 end
