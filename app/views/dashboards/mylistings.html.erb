@@ -1,21 +1,28 @@
 <%= render 'layouts/navbar' %>
 <%= render "layouts/search" %>
-<div class= "container-fluid">
+<div class= "container-fluid p-3">
   <div class="row">
+
     <h1 class= "font_listing text-center" style="padding-bottom:100px;"> My Listings</h1>
         <% @listings.each do |listing| %>
-          <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+          <div class="col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
             <div class="bg-white rounded shadow h-100">
               <%= image_tag cl_image_path(listing.photo.key, height: 300, crop: :fill), alt: listing.name, class: "humour-img rounded-top" %>
               <div class="p-3 rounded-bottom d-flex flex-column">
                 <strong><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
                 <em><small class="text-muted"><%= listing.location %></small></em>
+                <div id="mylisting_button" class="d-flex.justify-content-end">
+                <%= link_to "edit", edit_listing_path(listing), class: "btn btn-outline-secondary" %>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
     </div>
+    <div class= "p-5">
    <%= link_to "Create new Listing", new_listing_path, class: "btn btn-primary" %>
+    </div>
+
 </div>
 
 
