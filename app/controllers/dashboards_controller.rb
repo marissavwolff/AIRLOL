@@ -4,4 +4,8 @@ class DashboardsController < ApplicationController
   def mylistings
     @listings = current_user.listings # Fetch listings associated with the current user
   end
+
+  def mybookings
+    @bookings = current_user.bookings
+  end
 end

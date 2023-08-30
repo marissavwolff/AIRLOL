@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
 
 
   def show
+    @booking = Booking.new
   end
 
 
@@ -21,6 +22,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    # @booking.listing = @booking
     if @listing.save
       redirect_to mylistings_path, notice: "Listing was successfully created."
     else
