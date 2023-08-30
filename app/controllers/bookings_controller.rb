@@ -24,6 +24,5 @@ end
 
   def booking_params
     params.require(:booking).permit(:date)
-
   end
 end
