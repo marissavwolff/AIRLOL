@@ -56,7 +56,7 @@
    </div>
 
 
- <p><strong>Reviews</strong><%= link_to "Add", new_listing_review_path(@listing, @review) if user_signed_in? %></p>
+ <p><strong>Reviews: </strong></p>
 
   <ul class="list-group">
     <% @listing.reviews.each do |review| %>
