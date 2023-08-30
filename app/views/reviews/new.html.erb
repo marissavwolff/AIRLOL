@@ -1,8 +1,14 @@
-<h1>New review</h1>
-<div class="container">
+<%= render 'layouts/navbar' %>
+<br>
+<h1 style="text-align: center;">New review</h1>
+<p style="text-align: center;">Comment and rate the humour! Remember: Everything is humourous!</p>
+<div class="container" style="margin: auto;
+  width: 50%;
+  padding: 20px;">
   <%= simple_form_for [@listing, @review] do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, priority: [ "1" ], collection: [ 1, 2, 3, 4, 5] %>
     <%= f.submit "Submit review", class: "btn btn-primary" %>
   <% end %>
 </div>
+<%= render 'layouts/footer' %>

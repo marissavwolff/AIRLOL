@@ -41,6 +41,7 @@
     <%= render 'bookings/booking_form', listing: @listing %>
   </div>
 
+
   <div class="m-5">
     <div style="width: 100%; height: 600px;"
       data-controller="map"
@@ -49,7 +50,9 @@
     </div>
    </div>
 
- <p><strong>Reviews</strong></p>
+
+ <p><strong>Reviews     </strong><%= link_to "Add", new_listing_review_path(@listing, @review) if user_signed_in? %></p>
+
   <ul class="list-group">
     <% @listing.reviews.each do |review| %>
       <li class="list-group-item"><%= review.content %></li>

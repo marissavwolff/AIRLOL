@@ -4,61 +4,66 @@
 <div class="icon-bar">
 
   <%= link_to root_path, class: 'category-link' do %>
+    <i class="fa-solid fa-border-all"></i>
+    <p>ALL</p>
+  <% end %>
+
+  <%= link_to root_path(category: 'family'), class: 'category-link' do %>
     <i class="fa-solid fa-people-group"></i>
     <p>Family</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'toilet'), class: 'category-link' do %>
     <i class="fa-solid fa-toilet-paper"></i>
     <p>Toilet</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'witty'), class: 'category-link' do %>
     <i class="fa-solid fa-face-smile-wink"></i>
     <p>Witty</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'slapstick'), class: 'category-link' do %>
     <i class="fa-solid fa-face-grin-tongue-wink"></i>
     <p>Slapstick</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'cringe'), class: 'category-link' do %>
     <i class="fa-solid fa-ghost"></i>
     <p>Cringe</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'satire'), class: 'category-link' do %>
     <i class="fa-solid fa-palette"></i>
     <p>Satire</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
-    <i class="fa-solid fa-fire-flame-simple"></i>
-    <p>Trending</p>
-  <% end %>
+  <%# <%= link_to root_path(category: 'trending'), class: 'category-link' do %>
+    <%# <i class="fa-solid fa-fire-flame-simple"></i> %>
+    <%# <p>Trending</p> %>
+  <%# <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'puns'), class: 'category-link' do %>
     <i class="fa-solid fa-face-grimace"></i>
     <p>Puns</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'awkward'), class: 'category-link' do %>
     <i class="fa-solid fa-face-smile-beam"></i>
     <p>Awkward</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'dry'), class: 'category-link' do %>
     <i class="fa-solid fa-star-half-stroke"></i>
     <p>Dry</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'dark'), class: 'category-link' do %>
     <i class="fa-solid fa-hat-wizard"></i>
     <p>Dark</p>
   <% end %>
 
-  <%= link_to root_path, class: 'category-link' do %>
+  <%= link_to root_path(category: 'self-deprecating'), class: 'category-link' do %>
     <i class="fa-solid fa-person"></i>
     <p>Self-Deprecating</p>
   <% end %>
@@ -68,13 +73,19 @@
 <div class="row m-2">
     <% @listings.each do |listing| %>
       <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
-        <div class="bg-white rounded shadow h-100">
-          <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: listing.name, class: "humour-img rounded-top" %>
-          <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong></span><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
-            <em><small class="text-muted"><%= listing.location %></small></em>
+        <%= link_to listing_path(listing) do %>
+          <div class="bg-white rounded shadow h-100">
+            <% if listing.photo.attached? %>
+              <%= cl_image_tag(listing.photo.key, class: "humour-img rounded-top") %>
+            <% else %>
+              <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: listing.name, class: "humour-img rounded-top" %>
+            <% end %>
+            <div class="p-3 rounded-bottom d-flex flex-column">
+              <strong></span><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
+              <em><small class="text-muted"><%= listing.location %></small></em>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
