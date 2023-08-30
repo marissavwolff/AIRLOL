@@ -5,6 +5,8 @@ class Listing < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+  geocoded_by :location
+  after_validation :geocode
   def available?
     availability
   end
