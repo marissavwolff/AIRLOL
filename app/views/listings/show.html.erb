@@ -41,7 +41,7 @@
     <%= render 'bookings/booking_form', listing: @listing %>
   </div>
 
- <p><strong>Reviews</strong></p>
+ <p><strong>Reviews     </strong><%= link_to "Add", new_listing_review_path(@listing, @review) if user_signed_in? %></p>
   <ul class="list-group">
   <% @listing.reviews.each do |review| %>
     <li class="list-group-item"><%= review.content %></li>
