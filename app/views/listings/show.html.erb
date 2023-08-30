@@ -38,8 +38,12 @@
   </div>
 
   <div class="m-4">
-    <%= render 'bookings/booking_form', listing: @listing %>
+    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
   </div>
+
+  <%# <div class="m-4">
+    <%= render 'bookings/new', listing: @listing %>
+  <%# </div> %>
 
  <p><strong>Reviews</strong></p>
   <ul class="list-group">
