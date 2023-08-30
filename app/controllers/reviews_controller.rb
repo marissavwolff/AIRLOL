@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_listing, only: %i[new create]
+  before_action :authenticate_user!
 
   def new
     @review = Review.new

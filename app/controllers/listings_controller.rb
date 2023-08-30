@@ -1,13 +1,17 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :destroy]
 
-
   def show
+    @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
+    @booking = Booking.new
   end
 
-
   def index
-    @listings = Listing.all
+    if params[:category].present?
+      @listings = Listing.where(category: params[:category])
+    else
+      @listings = Listing.all
+    end
   end
 
   def new
@@ -17,6 +21,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    # @booking.listing = @booking
     if @listing.save
       redirect_to mylistings_path, notice: "Listing was successfully created."
     else
@@ -33,5 +38,4 @@ class ListingsController < ApplicationController
   def set_listing
     @listing = Listing.find(params[:id])
   end
-
 end

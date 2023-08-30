@@ -1,12 +1,14 @@
-<%# <% user_signed_in? %>
+<%= render 'layouts/navbar' %>
+<%= render "layouts/search" %>
   <div class="container py-5">
     <div class="row">
       <div class="col-12 col-md-6 offset-lg-3">
         <div class="bg-white rounded p-3 shadow">
           <h3>Create you humor offer</h3>
           <%= simple_form_for @listing do |f| %>
-            <%# <%= f.input :name, placeholder: 'Your humor' %>
+            <%= f.input :name, placeholder: 'Your humor'%>
             <%= f.select :category, options_for_select(%w[witty dark dry slapstick family puns self-depreciating toilet satire awkward cringe]) %>
+            <%= f.input :description, placeholder: 'What is your humor about'%>
             <%= f.input :location %>
             <%= f.input :availability %>
             <%= f.input :price %>

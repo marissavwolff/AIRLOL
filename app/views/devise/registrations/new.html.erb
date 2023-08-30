@@ -1,5 +1,10 @@
-<h2>Sign up</h2>
-<div class="container">
+<%= render 'layouts/navbar' %>
+<h2></h2>
+<br>
+<div class="container" style="margin: auto;
+  width: 50%;
+  border: 3px solid gray;
+  padding: 10px;">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
@@ -28,3 +33,4 @@
 
   <%= render "devise/shared/links" %>
 </div>
+<%= render 'layouts/footer' %>
