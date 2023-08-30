@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get "mylistings", to: "dashboards#mylistings", as: :mylistings
   get "mybookings", to: "dashboards#mybookings", as: :mybookings
+  delete "mylistings", to: "mylistings#destroy"
 
   # Defines the root path route ("/")
   # root "articles#index"

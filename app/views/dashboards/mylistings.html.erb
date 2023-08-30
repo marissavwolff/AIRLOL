@@ -11,6 +11,8 @@
                 <strong><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
                 <em><small class="text-muted"><%= listing.location %></small></em>
               </div>
+              <%= link_to "Delete", listing_path(listing),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %>
             </div>
           </div>
         <% end %>
