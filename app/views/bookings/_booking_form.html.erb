@@ -1,9 +1,0 @@
-
-  <% if @listing.availability? %>
-   <%= simple_form_for [@listing, @booking] do |f| %>
-   <%= f.input :date %>
-   <%= f.submit "Book Humor" %>
-   <% end %>
-  <% else %>
-    <p>Sorry, the humor listing is not available for booking.</p>
-  <% end %>
