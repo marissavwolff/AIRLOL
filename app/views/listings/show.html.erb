@@ -41,19 +41,21 @@
     <%= render 'bookings/booking_form', listing: @listing %>
   </div>
 
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-marker-value="<%= @marker.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="m-5">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-marker-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+   </div>
 
  <p><strong>Reviews</strong></p>
   <ul class="list-group">
-  <% @listing.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
-    <li class="list-group-item"><%= review.rating %> out of 5</li>
-    <br>
-  <% end %>
-</ul>
+    <% @listing.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item"><%= review.rating %> out of 5</li>
+    <% end %>
+  </ul>
 </div>
 
 
