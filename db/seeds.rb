@@ -9,6 +9,7 @@ require 'faker'
 
 
 Listing.destroy_all
+Review.destroy_all
 
 puts "doing seed here"
 User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", password: "kafjgalkjdfhgbald")
@@ -20,5 +21,6 @@ User.create!(name: "Bob", number: "+33456 781345", email: "bob@lewagon.co.uk", p
   location = ["London", "Madrid", "Paris", "Lisbon", "New York", "Singapore", "Tokyo", "Rome", "Amsterdam"]
   Listing.create!(category: myArray.sample, description: Faker::Quote.jack_handey, user_id: 1, name: name.sample, price: price, location: location.sample)
 end
+
 
 puts "created seeds"
