@@ -7,7 +7,11 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
+    if params[:category].present?
+      @listings = Listing.where(category: params[:category])
+    else
+      @listings = Listing.all
+    end
   end
 
   def new
