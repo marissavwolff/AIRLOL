@@ -1,7 +1,8 @@
 
-  <%# <% if @listing.availability? %>
-   <%= simple_form_for [@listing, @booking] do |f| %>
-   <%= f.input :date %>
-   <%= f.submit "Book Humor"
+
+ 
+    <%= simple_form_for [@listing, @booking] do |f| %>
+      <%= f.input :date, as: :date %>
+    <%= f.submit "Book Humor" %>
    <% end %>
-<%# <% end %>
+

@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :destroy]
+  before_action :set_listing, only: [:show, :edit, :destroy, :update]
 
   def show
     @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
@@ -7,7 +7,11 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
+    if params[:category].present?
+      @listings = Listing.where(category: params[:category])
+    else
+      @listings = Listing.all
+    end
   end
 
   def new
@@ -24,9 +28,18 @@ class ListingsController < ApplicationController
     end
   end
 
+
   def destroy
     @listing.destroy
     redirect_to mylistings_path, status: :see_other
+  end
+
+  def edit
+  end
+
+  def update
+    @listing.update(listing_params)
+    redirect_to mylistings_path
   end
 
   private
