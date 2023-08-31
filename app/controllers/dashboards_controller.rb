@@ -8,4 +8,10 @@ class DashboardsController < ApplicationController
   def mybookings
     @bookings = current_user.bookings
   end
+
+  def booked_listings
+    @user = current_user
+    @unapproved_bookings = Booking.where(listing_id: @user.listings.select(:id), approved: false)
+  end
+
 end
