@@ -20,12 +20,17 @@
             <%= link_to "Logout", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
           </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <% if @user.avatar.attached? %>
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dlvw6xclf/image/upload/v1693408243/development/<%= @user.avatar.key %>.png" />
+            <% else %>
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://static.wikia.nocookie.net/mrbean/images/4/4b/Mr_beans_holiday_ver2.jpg" />
+            <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Listings", mylistings_path, class: "dropdown-item" %>
               <%= link_to "Add new listing", new_listing_path, class: "dropdown-item" %>
               <%= link_to "My bookings", mybookings_path, class: "dropdown-item" %>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
