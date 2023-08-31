@@ -10,7 +10,9 @@ def create
   @booking = @listing.bookings.new(booking_params)
  @booking.user = current_user
   if @booking.save
-    redirect_to mybookings_path(@booking), notice: "Booking created!"
+    flash[:notice] = "Humour Secured"
+    redirect_to mybookings_path
+    flash[:alert] = "Humour Secured"
   else
     render :new
   end
@@ -20,8 +22,13 @@ def new
   @listing = Listing.find(params[:listing_id])
   @booking = Booking.new
 end
-  private
 
+# def confirm
+#   flash[:notice] = "Humour Secured ☻"
+#   redirect_to mybookings_path
+# end
+
+private
   def booking_params
     params.require(:booking).permit(:date)
   end

@@ -1,8 +1,13 @@
 
 
- 
+
     <%= simple_form_for [@listing, @booking] do |f| %>
       <%= f.input :date, as: :date %>
     <%= f.submit "Book Humor" %>
    <% end %>
 
+<%# <% if flash[:notice] %>
+  <%# <div class="flash-notice">
+    <%= flash[:notice] %>
+  <%# </div>
+<% end %> 
