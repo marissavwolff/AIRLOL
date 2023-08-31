@@ -1,9 +1,8 @@
 
-<%= render "layouts/search" %>
-<div class= "container-fluid p-3">
+<div class= "container-fluid p-3" style="padding-bottom:100px;">
   <div class="row">
 
-    <h1 class= "font_listing text-center" style="padding-bottom:100px;"> My Listings</h1>
+    <h1 class= "font_listing text-center" > My Listings</h1>
         <% @listings.each do |listing| %>
           <div class="col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
             <div class="bg-white rounded shadow h-100">
@@ -22,7 +21,6 @@
         <% end %>
     </div>
     <div class= "p-5">
-   <%= link_to "Create new Listing", new_listing_path, class: "btn btn-primary" %>
+   <%= link_to "Create new Listing", new_listing_path, class: "btn btn-flat" %>
     </div>
 </div>
-
