@@ -19,10 +19,10 @@
                 </div>
                 <div>
                   <% if listing.bookings.empty? %>
-                    <%= link_to "Delete", listing_path(listing), class: "btn btn-outline-secondary btn-sm",
+                    <%= link_to "Delete", listing_path(listing), class: "btn btn-sm deletebtn",
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %>
                   <% else %>
-                   <a class="btn btn-outline-secondary btn-sm disabled" role="button" aria-disabled="true"><s>Delete</s> Booked</a>
+                   <a class="btn btn-sm deletebtn disabled" role="button" aria-disabled="true"><s>Delete</s> Booked</a>
                   <% end %>
                 </div>
               </div>
@@ -30,7 +30,7 @@
           </div>
         <% end %>
     </div>
-    <div class= "p-5">
+    <div class= "p-5 create-listing">
    <%= link_to "Create new Listing", new_listing_path, class: "btn btn-flat" %>
     </div>
 </div>
