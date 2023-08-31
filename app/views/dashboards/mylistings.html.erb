@@ -6,16 +6,26 @@
         <% @listings.each do |listing| %>
           <div class="col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
             <div class="bg-white rounded shadow h-100">
-              <%= image_tag cl_image_path(listing.photo.key, height: 300, crop: :fill), alt: listing.name, class: "humour-img rounded-top" %>
+              <% if listing.photo.attached?  %>
+                <%= cl_image_tag(listing.photo.key, height: 300, crop: :fill, alt: listing.name, class: "humour-img rounded-top") %>
+              <% else %>
+                <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: listing.name, class: "humour-img rounded-top" %>
+              <% end %>
               <div class="p-3 rounded-bottom d-flex flex-column">
-                <strong><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
+                <strong><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal"> <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
                 <em><small class="text-muted"><%= listing.location %></small></em>
                 <div id="mylisting_button" class="d-flex.justify-content-end">
-                <%= link_to "edit", edit_listing_path(listing), class: "btn btn-outline-secondary" %>
+                  <%= link_to "edit", edit_listing_path(listing), class: "btn btn-outline-secondary" %>
+                </div>
+                <div>
+                  <% if listing.bookings.empty? %>
+                    <%= link_to "Delete", listing_path(listing), class: "btn btn-outline-secondary btn-sm",
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %>
+                  <% else %>
+                   <a class="btn btn-outline-secondary btn-sm disabled" role="button" aria-disabled="true"><s>Delete</s> Booked</a>
+                  <% end %>
                 </div>
               </div>
-              <%= link_to "Delete", listing_path(listing),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?"} %>
             </div>
           </div>
         <% end %>
