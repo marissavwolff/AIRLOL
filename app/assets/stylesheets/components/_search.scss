@@ -1,5 +1,12 @@
 .search-form-control {
   position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(154, 151, 151);
+    opacity: 1; /* Firefox */
+  }
 }
 
 .search-form-control .btn {

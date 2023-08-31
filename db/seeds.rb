@@ -18,7 +18,7 @@ User.create!(name: "Bob", number: "+33456 781345", email: "harry@lewagon.co.uk",
 20.times do
   myArray = ["witty", "dark", "dry", "slapstick", "family", "puns", "self-depreciating", "toilet", "satire", "awkward", "cringe"]
   name = ["HA HA HA", "Family Joke!", "Hilarious", "One line puns!", "Create a chuckle :D"]
-  price = rand(0.01..0.99)
+  price = rand(1..10)
   location = ["London", "Madrid", "Paris", "Lisbon", "New York", "Singapore", "Tokyo", "Rome", "Amsterdam"]
   Listing.create!(category: myArray.sample, description: Faker::Quote.jack_handey, user_id: 1, name: name.sample, price: price, location: location.sample)
 end

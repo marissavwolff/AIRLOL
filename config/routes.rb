@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   end
   resources :bookings, only: [:index]
+  resources :search, only: [:index]
 
   get "mylistings", to: "dashboards#mylistings", as: :mylistings
   get "mybookings", to: "dashboards#mybookings", as: :mybookings
