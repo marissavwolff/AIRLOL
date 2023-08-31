@@ -20,6 +20,14 @@ def new
   @listing = Listing.find(params[:listing_id])
   @booking = Booking.new
 end
+
+
+def destroy
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to mybookings_path, notice: "Cancelation was successful!"
+end
+
   private
 
   def booking_params
