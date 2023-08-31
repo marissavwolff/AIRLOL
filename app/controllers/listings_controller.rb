@@ -9,9 +9,12 @@ class ListingsController < ApplicationController
   def index
     if params[:category].present?
       @listings = Listing.where(category: params[:category])
+    elsif params[:query].present?
+      @listings = Listing.search(params[:query])
     else
       @listings = Listing.all
     end
+    # @user = current_user
   end
 
   def new
