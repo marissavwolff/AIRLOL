@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.all
     end
+    # @user = current_user
   end
 
   def new
