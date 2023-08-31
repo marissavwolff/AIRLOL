@@ -1,40 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand", id: "nav-airlol" do %>
-      <%= image_tag "https://clipart-library.com/images/kcKB9bzki.jpg" %>
-      airLOL
-    <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+    <div class="container-fluid mx-4">
+      <%= link_to root_path, class: "navbar-brand", id: "nav-airlol" do %>
+        <%= image_tag "https://clipart-library.com/images/kcKB9bzki.jpg" %>
+        airLOL
+      <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <i class="fa-regular fa-face-grin-squint-tears"></i>
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Listings", mylistings_path, class: "dropdown-item" %>
-              <%= link_to "Add new listing", new_listing_path, class: "dropdown-item" %>
-              <%= link_to "My bookings", mybookings_path, class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active ">
+              <%= link_to root_path("Home"), class: "nav-link"  do %>
+              <p> <i class="fa-regular fa-face-grin-squint-tears"></i> Home</p>
+              <% end %>
+            </li>
+            <li class="nav-item dropdown px-3">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "My Listings", mylistings_path, class: "dropdown-item" %>
+                <%= link_to "Add New listing", new_listing_path, class: "dropdown-item" %>
+                <%= link_to "My Bookings", mybookings_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+
