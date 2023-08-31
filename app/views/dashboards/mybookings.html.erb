@@ -12,6 +12,11 @@
               <div class="p-3 rounded-bottom d-flex flex-column">
                 <strong><%= link_to booking.listing.name, root_path, class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal"><i class="fa-solid fa-sterling-sign"></i><%= booking.listing.price %></strong>
                 <em><small class="text-muted"><%= booking.listing.location %></small></em>
+             <% if booking.approved? %>
+             <em><small class="text-muted">approved</small></em>
+             <% else %>
+             <em><small class="text-muted"> to be approved...</small></em>
+             <% end %>
                   <%= link_to "Cancel", booking_path(booking),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your booking?"}, class: "btn btn-outline-secondary" %>
               <% else %>
@@ -19,6 +24,11 @@
               <div class="p-3 rounded-bottom d-flex flex-column">
                 <strong><%= link_to booking.listing.name, root_path, class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal"><i class="fa-solid fa-sterling-sign"></i><%= booking.listing.price %></strong>
                 <em><small class="text-muted"><%= booking.listing.location %></small></em>
+              <% if booking.approved? %>
+             <em><small class="text-muted">approved</small></em>
+             <% else %>
+             <em><small class="text-muted"> to be approved...</small></em>
+             <% end %>
                 <%= link_to "Cancel",  booking_path(booking),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your booking?"}, class: "btn btn-outline-secondary" %>
               <% end %>
