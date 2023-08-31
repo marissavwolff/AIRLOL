@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1 class="m-5"><%= @listing.name %></h1>
 
@@ -35,11 +34,15 @@
    </ul>
   </div>
 
+  <div class="m-4">
+    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
   </div>
-    <%= simple_form_for [@listing, @booking] do |f| %>
-    <%= f.input :date, as: :date %>
-    <%= f.submit "Book this Humour!", class: "custom-button-class" %>
-  <% end %>
+
+  <%# <div class="m-4">
+    <%= render 'bookings/new', listing: @listing %>
+  <%# </div> %>
+
+
 
   <div class="m-5">
     <div style="width: 100%; height: 600px;"
@@ -50,12 +53,13 @@
    </div>
 
 
+
  <p><strong>Reviews: </strong></p>
 
   <ul class="list-group">
     <% @listing.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.content %></li>
-      <li class="list-group-item"><%= review.rating %> out of 5</li>
+      <li class="list-group-item"><%= review.content %> |
+      <% if review.rating == 1 then %><i class="fa-solid fa-star"></i><% end %><% if review.rating == 2 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if review.rating == 3 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if review.rating == 4 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if review.rating == 5 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %></li>
     <% end %>
   </ul>
 </div>
