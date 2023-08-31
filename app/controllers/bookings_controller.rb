@@ -12,7 +12,7 @@ def create
   if @booking.save
     flash[:notice] = "Humour Secured"
     redirect_to mybookings_path
-    flash[:alert] = "Humour Secured"
+    flash[:alert] = "Humour Secured!"
   else
     render :new
   end
@@ -29,11 +29,6 @@ def destroy
   @booking.destroy
   redirect_to mybookings_path, notice: "Cancelation was successful!"
 end
-
-# def confirm
-#   flash[:notice] = "Humour Secured ☻"
-#   redirect_to mybookings_path
-# end
 
 private
   def booking_params
