@@ -23,6 +23,13 @@ def new
   @booking = Booking.new
 end
 
+
+def destroy
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to mybookings_path, notice: "Cancelation was successful!"
+end
+
 # def confirm
 #   flash[:notice] = "Humour Secured ☻"
 #   redirect_to mybookings_path

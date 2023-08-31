@@ -16,8 +16,9 @@
   </head>
 
   <body>
-    <%= render "shared/flashes" %>
+    <%= render 'layouts/navbar' %>
     <%= yield %>
-
+    <%= render "shared/flashes" %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
