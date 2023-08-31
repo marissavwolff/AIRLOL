@@ -5,9 +5,17 @@ class Listing < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+  include PgSearch::Model
+  pg_search_scope :search,
+  against: [ :name, :location ],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   geocoded_by :location
   after_validation :geocode
   def available?
     availability
   end
+
 end
