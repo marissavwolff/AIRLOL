@@ -75,3 +75,27 @@
     text-align: center;
     margin: 0 auto;
 }
+
+.approve {
+  color: white;
+  background: #670BFF;
+  transition: background 0.3s ease;
+  width: 100px;
+}
+
+.approve:hover {
+  background: rgb(97, 174, 95);
+  color: white;
+}
+
+.decline {
+  color: rgb(46, 43, 43);
+  background: #ffffff;
+  transition: background 0.3s ease;
+  width: 100px;
+}
+
+.decline:hover {
+  background: rgb(217, 77, 61);
+  color: white;
+}

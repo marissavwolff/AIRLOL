@@ -4,7 +4,7 @@
 
     <h1 class= "font_listing text-center" > My Listings</h1>
         <% @listings.each do |listing| %>
-          <div class="col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
+          <div class="listings-card col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
             <div class="bg-white rounded shadow h-100">
               <% if listing.photo.attached?  %>
                 <%= cl_image_tag(listing.photo.key, height: 300, crop: :fill, alt: listing.name, class: "humour-img rounded-top") %>

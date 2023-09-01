@@ -54,3 +54,31 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.humor-card {
+  transition: background-color 0.5s;
+  --b: 6px;     /* the border thickness*/
+  --g: 3px;    /* the gap */
+  --c: #DE3163; /* the color */
+  padding: var(--g);
+  cursor: pointer;
+  transition: .3s;
+}
+.humor-card:hover {
+  border: var(--b) solid var(--c);
+  padding: 0;
+}
+
+.listings-card {
+  transition: background-color 0.5s;
+  --b: 3px;     /* the border thickness*/
+  --g: 3px;    /* the gap */
+  --c: #9db0df; /* the color */
+  padding: var(--g);
+  cursor: pointer;
+  transition: .3s;
+}
+.listings-card:hover {
+  border: var(--b) solid var(--c);
+  padding: 0;
+}

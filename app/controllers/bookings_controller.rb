@@ -18,7 +18,7 @@ if @listing.availability.blank?
     flash[:alert] = "Humour Secured!"
   else
     render :new
-  end
+end
 end
 
 def new
