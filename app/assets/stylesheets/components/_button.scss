@@ -56,3 +56,22 @@
   bottom: 0;
   right: 0;
 }
+
+.btn-cancel {
+  font-family: Gluten;
+  // padding: 10px 0px 0px;
+  // margin: 10px 0px;
+  color: #B22222;
+  text-align: center;
+  border-style: none;
+}
+
+.btn-cancel:hover {
+  border-style: solid;
+    border-color: #B22222;
+    color: #B22222;
+    border-radius: 5px;
+    transition: 0.5s;
+    text-align: center;
+    margin: 0 auto;
+}
