@@ -67,7 +67,7 @@
     <i class="fa-solid fa-person"></i>
     <p>Self-Deprecating</p>
   <% end %>
-  
+
   <%= link_to root_path(price: 'under5'), class: 'category-link' do %>
     <i class="fa-solid fa-burst" style="color: rgb(216, 59, 85)";></i>
     <strong><p style="color: rgb(216, 59, 85)";>Under £5!</p></strong>
@@ -76,6 +76,7 @@
 
 <div class="row m-2" style="padding-bottom:100px;">
     <% @listings.each do |listing| %>
+    <% length = listing.reviews.length %>
       <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
         <%= link_to listing_path(listing) do %>
           <div class="bg-white rounded shadow h-100">
@@ -84,9 +85,17 @@
             <% else %>
               <%= image_tag 'https://clipart-library.com/images/rcLoyeB6i.jpg', alt: listing.name, class: "humour-img rounded-top" %>
             <% end %>
-            <div class="p-3 rounded-bottom d-flex flex-column">
+            <div class="p-2 rounded-bottom row justify-content-between">
               <strong></span><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
-              <em><small class="text-muted"><%= listing.location %></small></em>
+              <div class="col"><em><small class="text-muted"><%= listing.location %></small></em></div>
+              <div class="col text-end">
+              <% sum = 0 %>
+              <% listing.reviews.each do |review| %>
+                <% sum += review.rating %>
+              <% end %>
+              <% sum = sum/length if length != 0 %>
+              <ul style="list-style-type: none;"><li><% if sum == 1 then %><i class="fa-solid fa-star"></i><% end %><% if sum == 2 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if sum == 3 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if sum == 4 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %><% if sum == 5 then %><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><% end %></li></ul>
+              </div>
             </div>
           </div>
         <% end %>
