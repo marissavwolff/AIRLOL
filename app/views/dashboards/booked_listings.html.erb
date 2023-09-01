@@ -1,4 +1,6 @@
-<div class= "container-fluid" style="padding-bottom:100px;">
+
+<div class= "container-fluid p-3">
+
   <div class="row">
 
     <% if @unapproved_bookings.count > 0 %>
@@ -20,7 +22,11 @@
                     <em><small class="text-muted"><%= booking.listing.location %></small></em>
                       <div>
                             <button data-action="click->approve#check" data-approve-target="status" >Approve</button>
+
+
+
                             <button data-action="click->approve#decline" data-approve-target="status" >Decline</button>
+
                       </div>
                 </div>
               </div>
