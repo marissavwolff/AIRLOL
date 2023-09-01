@@ -301,7 +301,6 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   pg_search
-  popper_js (~> 2.11.8)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   sassc-rails
