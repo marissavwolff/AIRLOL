@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   delete "mylistings", to: "mylistings#destroy"
   get "booked_listings", to: "dashboards#booked_listings", as: :booked_listings
   get "approve_booking/:id", to: "bookings#approve_booking", as: :approve_booking
+  get "decline_booking/:id", to: "bookings#decline_booking", as: :decline_booking
 
   # Defines the root path route ("/")
   # root "articles#index"
