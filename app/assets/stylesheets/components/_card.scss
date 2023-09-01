@@ -95,7 +95,8 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-  
+}
+
 .humor-card {
   transition: background-color 0.5s;
   --b: 6px;     /* the border thickness*/
@@ -119,6 +120,7 @@
   cursor: pointer;
   transition: .3s;
 }
+
 .listings-card:hover {
   border: var(--b) solid var(--c);
   padding: 0;
