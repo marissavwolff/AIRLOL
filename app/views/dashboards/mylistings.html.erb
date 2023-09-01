@@ -2,7 +2,7 @@
 <div class= "container-fluid p-3" style="padding-bottom:100px;">
   <div class="row">
 
-    <h1 class= "font_listing text-center" > My Listings</h1>
+    <h1 class= "font_listing text-center" > My Humours 😆 </h1>
         <% @listings.each do |listing| %>
           <div class="col-12 col-sm-3 mt-5 rounded" data-aos="zoom-in">
             <div class="bg-white rounded shadow h-100">
@@ -15,7 +15,7 @@
                 <strong><%= link_to listing.name, listing_path(listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal"> <i class="fa-solid fa-sterling-sign"></i><%= listing.price %></strong>
                 <em><small class="text-muted"><%= listing.location %></small></em>
                 <div id="mylisting_button" class="d-flex.justify-content-end">
-                  <%= link_to "edit", edit_listing_path(listing), class: "btn btn-outline-secondary" %>
+                  <%= link_to "Edit", edit_listing_path(listing), class: "btn btn-edit btn-sm" %>
                 </div>
                 <div>
                   <% if listing.bookings.empty? %>
@@ -31,6 +31,6 @@
         <% end %>
     </div>
     <div class= "p-5 create-listing">
-   <%= link_to "Create new Listing", new_listing_path, class: "btn btn-flat" %>
+   <%= link_to "Add a new humour", new_listing_path, class: "btn btn-flat" %>
     </div>
 </div>

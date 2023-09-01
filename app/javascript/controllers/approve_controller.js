@@ -21,7 +21,16 @@ export default class extends Controller {
       .then(() => {
       window.location.reload();
   })
-    // let home_url = "/booked_listings"
-    // fetch(home_url)
+  }
+
+  decline() {
+    console.log(this.statusTarget.data)
+    console.log(this.bookingValue)
+    let url = `/decline_booking/${this.bookingValue}`
+    console.log(url)
+    fetch(url)
+      .then(() => {
+      window.location.reload();
+  })
   }
 }

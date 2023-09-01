@@ -39,6 +39,13 @@ def approve_booking
   @booking.save
 end
 
+def decline_booking
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to booked_listings_path, notice: "You declined the booking!"
+end
+
+
   private
 
   def booking_params

@@ -31,10 +31,10 @@
             <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Listings", mylistings_path, class: "dropdown-item" %>
-              <%= link_to "Add new listing", new_listing_path, class: "dropdown-item" %>
-              <%= link_to "My bookings", mybookings_path, class: "dropdown-item" %>
-              <%= link_to "To approve", booked_listings_path, class: "dropdown-item" %>
+              <%= link_to "My humours", mylistings_path, class: "dropdown-item" %>
+              <%= link_to "Add new humour", new_listing_path, class: "dropdown-item" %>
+              <%= link_to "My booked humours", mybookings_path, class: "dropdown-item" %>
+              <%= link_to "Humours to approve", booked_listings_path, class: "dropdown-item" %>
 
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
