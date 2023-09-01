@@ -1,0 +1,24 @@
+.card-map {
+  display: flex;
+  background-color: white;
+  padding: 40px;
+  margin: 20px 0 0;
+}
+
+.listing-description  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 40px;
+  margin: auto;
+}
+
+.listing-description p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.listing-description li {
+  font-size: 16px;
+}

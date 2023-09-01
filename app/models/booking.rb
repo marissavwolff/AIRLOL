@@ -5,8 +5,8 @@ class Booking < ApplicationRecord
   validate :listing_must_have_availability
 
   def listing_must_have_availability
-    if  listing && listing.availability.blank
+    if  listing && listing.availability.blank?
       errors.add(:base, "Listing must have availability selected to book")
     end
-  end 
+  end
 end

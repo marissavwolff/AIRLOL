@@ -20,23 +20,34 @@
   </div>
 
 
-
-  <div class="card-product m-3">
-    <div class="card-product-infos">
+  <div class="card-map">
+    <div class="listing-description">
       <p><%= @listing.description %></p>
+      <div class="mt-5">
+        <h5>What this <%= @listing.category %> humour has to offer:</h5>
+        <ul class="list-unstyled p-1">
+          <li><i class="fa-regular fa-face-grin-squint-tears" style="rgb(,0,0)"></i>  Laugh till you cry</li>
+          <li><i class="fa-solid fa-face-laugh-beam"></i>  Smile till your cheeks hurt</li>
+          <li><i class="fa-regular fa-face-laugh-squint"></i>  Giggle like a kid again </li>
+          <li><i class="fa-solid fa-square-person-confined"></i>  Some may question the type of humour</li>
+          <li><i class="fa-solid fa-face-laugh-wink"></i>  But will always laugh out of pitty</li>
+        </ul>
+      </div>
+    </div>
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-marker-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 
-  <div class="card-offer my-3 p-3">
-   <h5>What this <%= @listing.category %> humour has to offer:</h5>
-   <ul class="list-unstyled p-1">
-    <li><i class="fa-regular fa-face-grin-squint-tears"></i>  Laugh till you cry</li>
-    <li><i class="fa-solid fa-face-laugh-beam"></i>  Smile till your cheeks hurt</li>
-    <li><i class="fa-regular fa-face-laugh-squint"></i>  Giggle like a kid again </li>
-    <li><i class="fa-solid fa-square-person-confined"></i>  Some may question the type of humour</li>
-    <li><i class="fa-solid fa-face-laugh-wink"></i>  But will always laugh out of pitty</li>
-   </ul>
-  </div>
+
+
+
+
+  <%# <div class="m-4">
+    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+  <%# </div> %>
 
   <% if @listing.availability.present? %>
     <%= simple_form_for [@listing, @booking] do |f| %>
@@ -49,30 +60,6 @@
   <p>This humour is not available</p>
 <% end %>
 
-
-
-
-  <%# <div class="m-4">
-    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
-  <%# </div> %>
-
-
-  <div class="m-5">
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-marker-value="<%= @marker.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-   </div>
-
-    <%= simple_form_for [@listing, @booking] do |f| %>
-    <%= f.input :date, as: :date %>
-    <div class="center-button">
-    <div class="date-container">
-      <%= f.submit "Book this Humour!", class: "custom-button-class" %>
-    </div>
-    <% end %>
-    </div>
 
 
 
