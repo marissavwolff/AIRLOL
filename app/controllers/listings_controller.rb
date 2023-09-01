@@ -3,7 +3,9 @@ class ListingsController < ApplicationController
 
   def show
     @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
+    if @listing.availability.present?
     @booking = Booking.new
+    end 
   end
 
   def index
