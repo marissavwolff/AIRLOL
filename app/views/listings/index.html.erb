@@ -67,7 +67,7 @@
     <i class="fa-solid fa-person"></i>
     <p>Self-Deprecating</p>
   <% end %>
-  
+
   <%= link_to root_path(price: 'under5'), class: 'category-link' do %>
     <i class="fa-solid fa-burst" style="color: rgb(216, 59, 85)";></i>
     <strong><p style="color: rgb(216, 59, 85)";>Under £5!</p></strong>
@@ -76,7 +76,7 @@
 
 <div class="row m-2" style="padding-bottom:100px;">
     <% @listings.each do |listing| %>
-      <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+      <div class="humor-card col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
         <%= link_to listing_path(listing) do %>
           <div class="bg-white rounded shadow h-100">
             <% if listing.photo.attached? %>

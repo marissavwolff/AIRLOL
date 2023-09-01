@@ -3,8 +3,8 @@
   <div class="row">
     <h1 class= "font_listing text-center"> My Bookings</h1>
         <% @bookings.each do |booking| %>
-          <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
-            <div class="bg-white rounded shadow h-100">
+          <div class="listings-card col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+            <div class=" bg-white rounded shadow h-100">
             <% if booking.listing.photo.attached? %>
               <%= cl_image_tag(booking.listing.photo.key, height: 300, crop: :fill, alt: booking.listing.name, class: "humour-img rounded-top" )%>
               <div class="p-3 rounded-bottom d-flex flex-column">
