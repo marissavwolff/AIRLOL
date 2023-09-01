@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
 
   resources :listings, only: [:new, :create, :destroy, :index, :show, :edit, :update] do
-    resources :reviews, only: [:new, :create]
     resources :bookings, only: [:new, :create]
 
   end
 
-  resources :bookings, only: [:index, :destroy]
+  resources :bookings, only: [:index, :destroy] do
+    resources :reviews, only: [:new, :create]
+  end
 
   get "mylistings", to: "dashboards#mylistings", as: :mylistings
   get "mybookings", to: "dashboards#mybookings", as: :mybookings

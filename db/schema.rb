@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_152112) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_100559) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_152112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approved", default: false
+    t.bigint "review_id"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
+    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -72,10 +74,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_152112) do
     t.text "content"
     t.integer "rating"
     t.bigint "user_id", null: false
-    t.bigint "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -98,6 +100,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_152112) do
   add_foreign_key "bookings", "listings"
   add_foreign_key "bookings", "users"
   add_foreign_key "listings", "users"
-  add_foreign_key "reviews", "listings"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end

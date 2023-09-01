@@ -7,7 +7,9 @@ class DashboardsController < ApplicationController
 
   def mybookings
     @bookings = current_user.bookings
-    @listing = 
+    # @listing = Listing.find_by(:listing_id)
+    # @listing = Listing.find(params[:listing_id])
+    @review = Review.new
   end
 
   def booked_listings
