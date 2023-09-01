@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :set_listing, only: %i[new create]
   before_action :authenticate_user!
 
   def new
@@ -8,20 +7,19 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.listing = @listing
     @review.user = current_user
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+
     if @review.save
-      redirect_to listing_path(@listing)
+      flash[:success] = "Review Submitted"
+      redirect_to listing_path(@booking.listing)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   private
-
-  def set_listing
-    @listing = Listing.find(params[:listing_id])
-  end
 
   def review_params
     params.require(:review).permit(:content, :rating)

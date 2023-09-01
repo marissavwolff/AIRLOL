@@ -18,7 +18,6 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.where(availability: true)
     end
-    # @user = current_user
   end
 
   def new

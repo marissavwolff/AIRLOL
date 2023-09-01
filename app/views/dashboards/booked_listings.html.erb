@@ -4,12 +4,12 @@
   <div class="row">
 
     <% if @unapproved_bookings.count > 0 %>
-          <h2 class= "font_listing text-center" style="padding-bottom:100px;"> You still need approve the following bookings</h2>
+          <h2 class= "font_listing text-center"> You still need approve the following bookings</h2>
       <% else  %>
-          <h2 class= "font_listing text-center" style="padding-bottom:100px;"> No bookings to approve...</h2>
+          <h2 class= "font_listing text-center"> No bookings to approve...</h2>
     <% end %>
         <% @unapproved_bookings.each do |booking| %>
-          <div class="col-12 col-sm-3 mt-2 rounded" data-aos="zoom-in">
+          <div class="listings-card col-12 col-sm-3 mt-2 p-2 rounded" data-aos="zoom-in">
       <div data-controller="approve" data-approve-booking-value="<%= booking.id %>">
             <div class="bg-white rounded shadow h-100">
               <% if booking.listing.photo.attached? %>
@@ -21,11 +21,8 @@
                     <strong><%= link_to booking.listing.name, listing_path(booking.listing), class: 'text-decoration-none text-reset' %> <span class="text-muted font-weight-normal">• <i class="fa-solid fa-sterling-sign"></i><%= booking.listing.price %></strong>
                     <em><small class="text-muted"><%= booking.listing.location %></small></em>
                       <div>
-                            <button data-action="click->approve#check" data-approve-target="status" >Approve</button>
-
-
-
-                            <button data-action="click->approve#decline" data-approve-target="status" >Decline</button>
+                            <button class= "approve justify-content-center" data-action="click->approve#check" data-approve-target="status" >Approve</button>
+                            <button class= "decline justify-content-center" data-action="click->approve#decline" data-approve-target="status" >Decline</button>
 
                       </div>
                 </div>

@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :listing
 
+  has_many :reviews, dependent: :destroy
+
   validate :listing_must_have_availability
 
   def listing_must_have_availability
@@ -9,4 +11,5 @@ class Booking < ApplicationRecord
       errors.add(:base, "Listing must have availability selected to book")
     end
   end
+
 end
