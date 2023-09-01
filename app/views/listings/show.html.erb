@@ -34,17 +34,17 @@
    </ul>
   </div>
 
-
+  <% if @listing.availability.present? %>
     <%= simple_form_for [@listing, @booking] do |f| %>
     <%= f.input :date, as: :date %>
     <div class="center-button">
     <div class="date-container">
     <%= f.submit "Book this Humour!", class: "custom-button-class" %>
-    </div>
+    <% end %>
+    <% else %>
+  <p>This humour is not available</p>
+<% end %>
 
-  <% end %>
-    </div>
- 
 
 
 
