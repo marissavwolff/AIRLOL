@@ -5,7 +5,7 @@
         <h3 style="font-family: 'Gluten'; font-size: 30px; color: #333;"> Create your humour offer </h3>
         <%= simple_form_for @listing do |f| %>
           <%= f.input :name, label_html: {style: "font-family: Gluten; font-size: 25px"}, placeholder: 'Your humour' %>
-          <%= f.select :category, options_for_select(%w[witty dark dry slapstick family puns self-depreciating toilet satire awkward cringe]), label_html: {style: "font-family: Gluten; font-size: 25px"} %>
+          Category: <%= f.select :category, options_for_select(%w[witty dark dry slapstick family puns self-depreciating toilet satire awkward cringe]), label_html: {style: "font-family: Gluten; font-size: 25px"} %>
           <%= f.input :description, placeholder: 'What is your humour about', label_html: {style: "font-family: Gluten; font-size: 25px"} %>
           <%= f.input :location, placeholder: 'London', label_html: {style: "font-family: Gluten; font-size: 25px"} %>
           <%= f.input :availability, label_html: {style: "font-family: Gluten; font-size: 25px"} %>
