@@ -5,11 +5,9 @@
     <p><strong>Listing:</strong> <%= booking.listing.title %></p>
     <p><strong>Category:</strong> <%= booking.listing.category %></p>
     <p><strong>Price:</strong> <%= booking.listing.price %></p>
-    <p><%= link_to "Add a review", new_listing_review_path(@listing) %></p>
+    <p><%= link_to "Add a review", new_listing_review_path(@listing), class: "approve" %></p>
   </div>
-<% end %>
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="approve" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a review
 </button>
 <!-- Modal -->
@@ -23,8 +21,6 @@
       <div class="modal-body">
         <p style="text-align: center;">Comment and rate the humour! Remember: Everything is humourous!</p>
         <div>
-          width: 50%;
-          padding: 20px;">
           <%= simple_form_for [@listing, @review] do |f| %>
             <%= f.input :content %>
             <%= f.input :rating, priority: [ "1" ], collection: [ 1, 2, 3, 4, 5] %>
@@ -33,9 +29,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
+<% end %>

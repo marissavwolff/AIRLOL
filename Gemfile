@@ -83,3 +83,4 @@ group :test do
 end
 
 gem "cloudinary"
+gem "popper_js"
