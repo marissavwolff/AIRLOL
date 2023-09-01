@@ -1,0 +1,22 @@
+.deletebtn {
+  font-family: Gluten;
+  padding: 10px 0px 0px;
+  margin: 10px 0px;
+  color: #B22222;
+  text-align: center;
+  border-style: none;
+}
+
+.deletebtn:hover {
+  background-color: #B22222;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0px;
+  transition: 0.3s;
+}
+
+.create-listing {
+  width: 200px;
+  margin: auto;
+}
