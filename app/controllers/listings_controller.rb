@@ -3,18 +3,20 @@ class ListingsController < ApplicationController
 
   def show
     @marker = { lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }
+    if @listing.availability.present?
     @booking = Booking.new
+    end 
   end
 
   def index
     if params[:category].present?
-      @listings = Listing.where(category: params[:category])
+      @listings = Listing.where(category: params[:category], availability: true)
     elsif params[:query].present?
-      @listings = Listing.search(params[:query])
+      @listings = Listing.search(params[:query], availability: true)
     elsif params[:price].present?
-      @listings = Listing.where('price <= 5')
+      @listings = Listing.where('price <= 5 AND availability = true')
     else
-      @listings = Listing.all
+      @listings = Listing.where(availability: true)
     end
   end
 

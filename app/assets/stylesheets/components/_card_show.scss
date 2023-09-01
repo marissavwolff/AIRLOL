@@ -1,0 +1,18 @@
+.card-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-show h1 {
+  font-family: Gluten;
+}
+
+.card-show h3 {
+  font-size: 14px;
+}
+
+.card-offer {
+  background-color: white;
+}

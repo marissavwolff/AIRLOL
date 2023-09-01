@@ -14,9 +14,11 @@
   padding: 5px;
   margin: 10px 0px;
   transition: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
 .create-listing {
   width: 200px;
   margin: auto;
 }
+

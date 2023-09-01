@@ -9,13 +9,16 @@ def create
   @listing = Listing.find(params[:listing_id])
   @booking = @listing.bookings.new(booking_params)
  @booking.user = current_user
-  if @booking.save
+  if @listing.availability.blank?
+    flash[:alert] = "Listing must have availability selected to book."
+    redirect_to @listing
+  elsif @booking.save
     flash[:notice] = "Humour Secured"
     redirect_to mybookings_path
     flash[:alert] = "Humour Secured!"
   else
     render :new
-  end
+end
 end
 
 def new
@@ -35,6 +38,13 @@ def approve_booking
   @booking.approved = true
   @booking.save
 end
+
+def decline_booking
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to booked_listings_path, notice: "You declined the booking!"
+end
+
 
   private
 

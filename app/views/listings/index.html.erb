@@ -76,8 +76,11 @@
 
 <div class="row m-2" style="padding-bottom:100px;">
     <% @listings.each do |listing| %>
+
     <% length = listing.reviews.length %>
-      <div class="col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+
+      <div class="humor-card col-12 col-sm-3 mb-4 rounded" data-aos="zoom-in">
+
         <%= link_to listing_path(listing) do %>
           <div class="bg-white rounded shadow h-100">
             <% if listing.photo.attached? %>
