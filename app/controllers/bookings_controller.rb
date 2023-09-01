@@ -30,7 +30,14 @@ def destroy
   redirect_to mybookings_path, notice: "Cancelation was successful!"
 end
 
-private
+def approve_booking
+  @booking = Booking.find(params[:id])
+  @booking.approved = true
+  @booking.save
+end
+
+  private
+
   def booking_params
     params.require(:booking).permit(:date)
   end

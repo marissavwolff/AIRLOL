@@ -11,6 +11,8 @@ class ListingsController < ApplicationController
       @listings = Listing.where(category: params[:category])
     elsif params[:query].present?
       @listings = Listing.search(params[:query])
+    elsif params[:price].present?
+      @listings = Listing.where('price <= 5')
     else
       @listings = Listing.all
     end
@@ -30,7 +32,6 @@ class ListingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def destroy
     @listing.destroy
