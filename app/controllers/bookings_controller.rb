@@ -8,17 +8,17 @@ end
 def create
   @listing = Listing.find(params[:listing_id])
   @booking = @listing.bookings.new(booking_params)
- @booking.user = current_user
-if @listing.availability.blank?
-  flash[:alert] = "Listing must have availability selected to book."
-  redirect_to @listing
+  @booking.user = current_user
+  if @listing.availability.blank?
+    flash[:alert] = "Listing must have availability selected to book."
+    redirect_to @listing
   elsif @booking.save
     flash[:notice] = "Humour Secured"
     redirect_to mybookings_path
     flash[:alert] = "Humour Secured!"
   else
     render :new
-  end
+    end
 end
 
 def new

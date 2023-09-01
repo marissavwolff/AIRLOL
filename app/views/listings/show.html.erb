@@ -1,21 +1,29 @@
 <div class="container">
-  <h1 class="m-5"><%= @listing.name %></h1>
 
-  <div class="card-trip m-3">
+  <div class="card-product">
     <% if @listing.photo.attached? %>
       <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
-     <% else %>
+    <% else %>
       <%= image_tag "lauging-image.png", height: 300, width: 400, crop: :fill %>
     <% end %>
-      <div class="card-trip-infos">
+    <div class="card-product-infos">
+      <h1><%= @listing.name %></h1>
+        <h3><%= @listing.location %> | £<%= @listing.price %></h3>
+        <h2 class="mp-5">Category: <%= @listing.category %></h2>
+        <h3> </h3>
+        <% if @listing.availability.present? %>
+        <%= simple_form_for [@listing, @booking] do |f| %>
         <div>
-          <h3><%= @listing.location %></h3>
-          <h2><%= @listing.category %></h2>
+          <%= f.input :date, as: :date, html5: true, label: false %>
         </div>
-      <h2 class="card-trip-pricing">£<%= @listing.price %> /night</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <%= f.submit "Book this Humour!", class: "btn btn-flat" %>
+        <% end %>
+        <% else %>
+      <strong><p>Sorry, this humour is not available</p></strong>
+    <% end %>
     </div>
   </div>
+
 
   <div class="card-product m-3">
     <div class="card-product-infos">
@@ -36,13 +44,13 @@
 
   <% if @listing.availability.present? %>
     <%= simple_form_for [@listing, @booking] do |f| %>
-    <%= f.input :date, as: :date %>
-    <div class="center-button">
-    <div class="date-container">
+    <div class="col-2">
+      <%= f.input :date, as: :date, html5: true%>
+    </div>
     <%= f.submit "Book this Humour!", class: "custom-button-class" %>
     <% end %>
     <% else %>
-  <p>This humour is not available</p>
+  <strong><p>Sorry, this humour is not available</p></strong>
 <% end %>
 
 
