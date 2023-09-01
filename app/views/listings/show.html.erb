@@ -34,6 +34,7 @@
    </ul>
   </div>
 
+
     <%= simple_form_for [@listing, @booking] do |f| %>
     <%= f.input :date, as: :date %>
     <div class="center-button">
@@ -41,9 +42,6 @@
     <%= f.submit "Book this Humour!", class: "custom-button-class" %>
     </div>
   <% end %>
-  <%# <div class="m-4">
-    <%= link_to "Book this humour!", new_listing_booking_path(@listing), class: "btn btn-primary" %>
-  <%# </div> %>
 
 
   <div class="m-5">
